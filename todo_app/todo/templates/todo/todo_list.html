@@ -9,7 +9,16 @@
 </head>
 
 <body>
-    Hello world from todo app!
+    <ul>
+        {% if request.user.is_authenticated %}
+        Hello, {{ request.user.username }}
+        {% else %}
+        Hello anonymous user
+        {% endif %}
+        {% for todo in todos %}
+        <li>{{ todo.name }}, it's due {{ todo.due_date }}</li>
+        {% endfor %}
+    </ul>
 </body>
 
 </html>
