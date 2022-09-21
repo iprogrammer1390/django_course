@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <a href="/create">Create a todo</a>
     <ul>
         {% if request.user.is_authenticated %}
         Hello, {{ request.user.username }}
