@@ -1,3 +1,4 @@
+from tabnanny import verbose
 from django.db import models
 
 # Create your models here.
@@ -23,6 +24,12 @@ class Website(models.Model):
     rating = models.IntegerField()
     status = models.CharField(choices=STATUS_CHOICES, max_length=1)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    # class Meta:
+    #     ordering = ['rating']
+    #     db_table = 'website_custom_table_name'
+    #     verbose_name = 'the website'
+    #     verbose_name_plural = 'the websites'
 
     def __str__(self):
         return f'{self.name} {self.rating}'
