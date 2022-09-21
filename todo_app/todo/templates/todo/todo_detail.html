@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<br lang="en">
+{% extends 'base.html' %}
+{% block content %}
+<div class="col-4 offset-4">
+    <a class="btn btn-secondary mt-3" href="/">Go Home</a>
+    <div class="card mt-3">
+        <div class="card-header">{{ todo.name }}</div>
+        <div class="card-body">It's due date is {{ todo.due_date }}</div>
+        <div class="card-footer">
+            <a class="btn btn-primary" href="/{{ todo.pk }}/update/">Update</a>
+            <a class="btn btn-danger ml-3" href="/{{ todo.pk }}/delete/">Delete</a>
+        </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<br>
-The todo name is: {{ todo.name }}, it's due date is {{ todo.due_date }}<br>
-<a href="/{{ todo.pk }}/update/">Update</a><br>
-<a href="/{{ todo.pk }}/delete/">Delete</a>
-</body>
-
-</html>
+    </div>
+</div>
+{% endblock content %}
