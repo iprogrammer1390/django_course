@@ -41,4 +41,9 @@ def todo_update(request, pk):
     }
     return render(request, 'todo/todo_update.html', context)
 
+def todo_delete(request, pk):
+    todo = Todo.objects.get(pk=pk)
+    todo.delete()
+    return redirect('/')
+
 
