@@ -9,8 +9,12 @@
 </head>
 
 <body>
-    The todo name is: {{ todo.name }}, it's due date is {{ todo.due_date }}
-    <a href="/{{ todo.pk }}/update/">Update</a>
+    <h4>Update a todo</h4>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
 </body>
 
 </html>
